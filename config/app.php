@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+Illuminate\Auth\Access\GateServiceProvider::class;
 
 return [
 
