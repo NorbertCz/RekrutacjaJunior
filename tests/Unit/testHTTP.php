@@ -14,4 +14,10 @@ class testHTTP extends TestCase
 
         $response->assertStatus(200);
     }
+    public function testAdminCanAccessEndpoint()
+    {
+    $user = factory(User::class)->create(['role' => 'admin']);
+    $response = $this->actingAs($user)->get('/api/customers');
+    $response->assertStatus(200);
+    }
 }

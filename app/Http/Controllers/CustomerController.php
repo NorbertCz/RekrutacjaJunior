@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+
+    public function create(CreateCustomerRequest $request)
+    {
+    $customer = new Customer;
+    $customer->first_name = $request->input('first_name');
+    $customer->last_name = $request->input('last_name');
+    $customer->email = $request->input('email');
+    $customer->save();
+    return response()->json($customer);
+    }
     public function index()
     {
         $customers = Customer::all();
