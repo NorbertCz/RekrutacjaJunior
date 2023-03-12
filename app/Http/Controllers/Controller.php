@@ -8,5 +8,11 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+    public function show(Customer $customer)
+{
+    $this->authorize('view', $customer);
+
+    return $customer;
+}
     use AuthorizesRequests, ValidatesRequests;
 }
